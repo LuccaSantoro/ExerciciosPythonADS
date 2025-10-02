@@ -1,52 +1,27 @@
 # Calcule a quantidade de litros gastos em uma viagem, sabendo que o automóvel faz 12 km/l. Receber o tempo de percurso e a velocidade média.
 
-TAXA_CONSUMO = 12  # km/l
+#Declarar
+tempo_viagem = 0
+vel_media = 0
+distancia_final = 0
+litros_gastos = 0
 
-def obter_dados():
-    """
-    Solicita o tempo de percurso e a velocidade média ao usuário.
-    Realiza a validação para garantir que são números.
-    """
-    print("Calcule a quantidade de litros gastos em uma viagem")
-    while True:
-        try:
-            tempo_percurso = float(input("Insira o tempo de percurso (em horas): "))
-            velocidade_media = float(input("Insira a velocidade média (em km/h): "))
-            
-            # Validação simples para evitar valores negativos ou zero no cálculo
-            if tempo_percurso <= 0 or velocidade_media <= 0:
-                print("O tempo e a velocidade devem ser maiores que zero.")
-                continue
-                
-            return tempo_percurso, velocidade_media
-        
-        except ValueError:
-            print("Entrada inválida. Por favor, insira apenas números.")
+#procedimento
+def Entrada():
+  global tempo_viagem, vel_media
+  tempo_viagem = float(input("Digite o tempo de percurso em horas: "))
+  vel_media = float(input("Digite a velocidade media em km/h: "))
 
-def calcular_litros(tempo_percurso, velocidade_media):
-    """
-    Calcula a distância percorrida e a quantidade de litros gastos.
-    """
-    # Distância = Tempo * Velocidade
-    distancia = tempo_percurso * velocidade_media
-    
-    # Litros = Distância / Consumo (12 km/l)
-    litros_gastos = distancia / TAXA_CONSUMO
-    
-    return litros_gastos, distancia
+#procedimento
+def Calculo():
+  global tempo_viagem, vel_media, distancia_final, litros_gastos
+  distancia_final = tempo_viagem * vel_media
+  litros_gastos = distancia_final / 12
 
-def main():
-    """
-    Função principal que coordena a execução do programa.
-    """
-    # 1. Obtém as entradas
-    tempo, velocidade = obter_dados()
-    
-    # 2. Calcula os litros e a distância
-    litros, distancia = calcular_litros(tempo, velocidade)
-    
-    # 3. Exibe o resultado
-    print(f"Você gastará {litros:.2f} litros de combustível para percorrer {distancia:.2f} km.")
+#Início
+Entrada()
+Calculo()
+print("A distancia percorrida foi de", distancia_final, "km.")
+print("A quantidade de litros gastos foi de", litros_gastos, "litros.")
 
-if __name__ == "__main__":
-    main()
+#fim
