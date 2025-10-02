@@ -1,25 +1,16 @@
 # Organize números inteiros em ordem decrescente (Conforme a lógica do código original)
 
-print("Organize números inteiros em ordem decrescente")
+#Declarar
+n1 = int(input("Digite um numero inteiro: "))
+n2 = int(input("Digite outro numero inteiro: "))
 
-try:
-    # 1. Recebe a entrada do primeiro número
-    valor1 = int(input("Insira o valor do primeiro número:"))
-    
-    # 2. Recebe a entrada do segundo número
-    valor2 = int(input("Insira o valor do segundo número:"))
-    
-except ValueError:
-    print("Entrada inválida. Por favor, insira números inteiros.")
-    exit()
-
-# --- Lógica de Impressão Ordenada (Substitui a função 'print_in_order') ---
-
-# Verifica qual é o maior para imprimir primeiro
-if valor1 > valor2:
-    print(valor1)
-    print(valor2)
+#Início
+print("Os numeros em ordem decrescente sao:")
+if n1 > n2:
+  print(n1)
+  print(n2)
 else:
-    # Se valor2 for maior ou igual a valor1
-    print(valor2)
-    print(valor1)
+  print(n2)
+  print(n1)
+
+#fim
