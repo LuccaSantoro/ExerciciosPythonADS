@@ -1,19 +1,28 @@
-def get_integer(prompt):
-    return int(input(prompt))
+# Organize dois números inteiros em ordem decrescente
 
-def print_in_order(a, b):
-    if a > b:
-        print(a)
-        print(b)
-    else:
-        print(b)
-        print(a)
+#Declarar
+num1 = 0
+num2 = 0
 
-def main():
-    print("Organize números inteiros em ordem crescente")
-    valor1 = get_integer("Insira o valor do primeiro número:")
-    valor2 = get_integer("Insira o valor do segundo número:")
-    print_in_order(valor1, valor2)
+#procedimento
+def Leitura():
+  global num1, num2
+  num1 = int(input("Digite o primeiro numero: "))
+  num2 = int(input("Digite o segundo numero: "))
 
-if __name__ == "__main__":
-    main()
+#procedimento
+def Ordena():
+  global num1, num2
+  print("Os numeros em ordem decrescente sao:")
+  if num1 > num2:
+    print(num1)
+    print(num2)
+  else:
+    print(num2)
+    print(num1)
+
+#Início
+Leitura()
+Ordena()
+
+#fim
