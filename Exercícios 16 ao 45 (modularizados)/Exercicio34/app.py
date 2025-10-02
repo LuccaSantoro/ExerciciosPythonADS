@@ -1,25 +1,24 @@
 #Receba um número. Calcule e mostre os resultados da tabuada desse número.
 
-print("Cálculo da tabuada de um número inteiro")
+#Declarar
+numero = 0
 
-def tabuada():
-    try: 
-        valor = int(input("Insira o número inteiro: "))
-        if valor < 0:
-            print("Número inválido. Por favor, insira um número inteiro positivo.")
-            return
-        elif valor == 0:
-            print("A tabuada do 0 é sempre 0.")
-            return
-    except ValueError:
-        print("Entrada inválida. Por favor, insira um número inteiro.")
-        return
-    
-#inicio
-    print(f"Tabuada do {valor}:")
-    for i in range(1, 11):
-        resultado = valor * i
-        print(f"{valor} x {i} = {resultado}")
+#procedimento
+def Leitura():
+  global numero
+  numero = int(input("Digite um numero para ver a sua tabuada: "))
 
-if __name__ == "__main__":
-    tabuada()
+#procedimento
+def Tabuada():
+  global numero
+  resultado = 0
+  print("--- Tabuada do", numero, "---")
+  for i in range(1, 11):
+    resultado = numero * i
+    print(numero, "x", i, "=", resultado)
+
+#Início
+Leitura()
+Tabuada()
+
+#fim
