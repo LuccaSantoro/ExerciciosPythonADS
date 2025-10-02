@@ -1,32 +1,32 @@
-def get_input():
-    print("Organize quatro números em ordem crescente")
-    print("Insira o primeiro, o segundo e o terceiro número em ordem crescente")
-    valor1 = float(input("Insira o valor do primeiro número:"))
-    valor2 = float(input("Insira o valor do segundo número:"))
-    valor3 = float(input("Insira o valor do terceiro número:"))
-    valor4 = float(input("Insira o valor do quarto número:"))
-    return valor1, valor2, valor3, valor4
+# Organize quatro números em ordem crescente
 
-def print_sorted(valores):
-    for v in valores:
-        print(v)
+#Declarar
+n1 = 0
+n2 = 0
+n3 = 0
+n4 = 0
+lista_final = []
 
-def organize_numbers(valor1, valor2, valor3, valor4):
-    if valor1 > valor2 > valor3:
-        if valor4 >= valor1:
-            print_sorted([valor4, valor1, valor2, valor3])
-        elif valor4 <= valor3:
-            print_sorted([valor1, valor2, valor3, valor4])
-        elif valor1 > valor4 >= valor2:
-            print_sorted([valor1, valor4, valor2, valor3])
-        elif valor2 > valor4 >= valor3:
-            print_sorted([valor1, valor2, valor4, valor3])
-    else:
-        print("Por favor, insira o primeiro, o segundo e o terceiro número em ordem crescente")
+#procedimento
+def Leitura():
+  global n1, n2, n3, n4
+  n1 = float(input("Digite o 1º numero: "))
+  n2 = float(input("Digite o 2º numero: "))
+  n3 = float(input("Digite o 3º numero: "))
+  n4 = float(input("Digite o 4º numero: "))
 
-def main():
-    valor1, valor2, valor3, valor4 = get_input()
-    organize_numbers(valor1, valor2, valor3, valor4)
+#procedimento
+def Ordena():
+  global n1, n2, n3, n4, lista_final
+  # Coloca os numeros lidos em uma lista
+  lista_numeros = [n1, n2, n3, n4]
+  # Ordena a lista
+  lista_numeros.sort()
+  lista_final = lista_numeros
 
-if __name__ == "__main__":
-    main()
+#Início
+Leitura()
+Ordena()
+print("Os numeros em ordem crescente sao:", lista_final)
+
+#fim
