@@ -1,23 +1,11 @@
 #Receba os 2 números inteiros. Calcule e mostre a soma dos quadrados.
 
-print("Cálculo da soma dos quadrados de dois números inteiros")
+num1 = int(input("Digite o primeiro numero: "))
+num2 = int(input("Digite o segundo numero: "))
 
-try:
-    # 1. Recebe a entrada do primeiro número
-    valor1 = int(input("Insira o valor do primeiro número inteiro: "))
-    
-    # 2. Recebe a entrada do segundo número
-    valor2 = int(input("Insira o valor do segundo número inteiro: "))
+quad1 = num1 * num1
+quad2 = num2 * num2
 
-except ValueError:
-    print("Entrada inválida. Por favor, insira apenas números inteiros.")
-    exit()
+soma = quad1 + quad2
 
-# --- Lógica de Cálculo da Soma dos Quadrados (Substitui a função 'calcula_soma_quadrados') ---
-
-soma_quadrados = valor1**2 + valor2**2
-print(f"A soma dos quadrados de {valor1} e {valor2} é: {soma_quadrados}")
-
-# --- Fim da Lógica de Cálculo ---
-
-#fim
+print("A soma dos quadrados e:", soma)
