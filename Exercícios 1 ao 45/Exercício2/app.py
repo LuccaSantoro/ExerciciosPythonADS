@@ -1,20 +1,8 @@
 #Receba o salário de um funcionário e mostre o novo salário com reajuste de 15%.
 
-print("Cálculo do novo salário com reajuste de 15%")
+sal = float(input("Qual o seu salario? "))
 
-try:
-    # 1. Recebe a entrada do valor do salário
-    salario = float(input("Insira o valor do salário: "))
+aumento = sal * 0.15
+sal_novo = sal + aumento
 
-except ValueError:
-    print("Entrada inválida. Por favor, insira apenas números.")
-    exit()
-
-# --- Lógica de Cálculo do Novo Salário ---
-
-novo_salario = salario * 1.15
-print(f"O novo salário com reajuste de 15% é: {novo_salario:.2f}")
-
-# --- Fim da Lógica de Cálculo ---
-
-#fim
+print("Seu novo salario sera:", sal_novo)
