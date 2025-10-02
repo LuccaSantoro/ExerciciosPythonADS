@@ -1,28 +1,18 @@
 # Organize quatro números em ordem crescente
 
-print("Organize quatro números em ordem crescente")
-print("Insira o primeiro, o segundo e o terceiro número em ordem crescente")
+#Declarar
+n1 = float(input("Digite o primeiro numero: "))
+n2 = float(input("Digite o segundo numero: "))
+n3 = float(input("Digite o terceiro numero: "))
+n4 = float(input("Digite o quarto numero: "))
+lista_numeros = []
 
-# --- Lógica de Entrada (Substitui a função 'get_input') ---
-try:
-    valor1 = float(input("Insira o valor do primeiro número:"))
-    valor2 = float(input("Insira o valor do segundo número:"))
-    valor3 = float(input("Insira o valor do terceiro número:"))
-    valor4 = float(input("Insira o valor do quarto número:"))
-except ValueError:
-    print("Entrada inválida. Por favor, insira apenas números.")
-    exit()
+#Início
+lista_numeros = [n1, n2, n3, n4]
+lista_numeros.sort()
 
-# --- Lógica de Organização (Substitui as funções 'organize_numbers' e 'print_sorted') ---
+print("Os numeros em ordem crescente sao:")
+for numero in lista_numeros:
+  print(numero)
 
-
-if valor1 > valor2 and valor2 > valor3:
-    # Coloca os valores em uma lista e ordena
-    valores = [valor1, valor2, valor3, valor4]
-    valores.sort()
-
-    # Imprime os valores ordenados
-    for v in valores:
-        print(v)
-        
-    
+#fim
