@@ -1,35 +1,36 @@
 #Receba um número inteiro. Calcule e mostre a série de Fibonacci até o seu N’nésimo termo.
 
-print("Cálculo da série de Fibonacci até o N'nésimo termo")
+#Declarar
+n_termos = 0
 
-def calcular_fibonacci(n):
-    if n <= 0:
-        return []
-    elif n == 1:
-        return [0]
-    elif n == 2:
-        return [0, 1]
-    
-    fibonacci = [0, 1]
-    for i in range(2, n):
-        proximo = fibonacci[-1] + fibonacci[-2]
-        fibonacci.append(proximo)
-    
-    return fibonacci
+#procedimento
+def Leitura():
+  global n_termos
+  n_termos = int(input("Digite o numero de termos da serie de Fibonacci: "))
 
-def main():
-    try:
-        numero = int(input("Digite um número inteiro positivo: "))
-        
-        if numero <= 0:
-            print("Número inválido. Por favor, digite um número inteiro positivo.")
-            return
-    except ValueError:
-        print("Entrada inválida. Por favor, digite um número inteiro.")
-        return
-    
-    serie_fibonacci = calcular_fibonacci(numero)
-    print(f"A série de Fibonacci até o {numero}º termo é: {serie_fibonacci}")
+#procedimento
+def CalculaMostra():
+  global n_termos
+  anterior = 0
+  atual = 1
+  
+  print("A serie de Fibonacci e:")
+  
+  if n_termos <= 0:
+    print("O numero deve ser positivo.")
+  elif n_termos == 1:
+    print(anterior)
+  else:
+    print(anterior)
+    print(atual)
+    for i in range(2, n_termos):
+      proximo = anterior + atual
+      print(proximo)
+      anterior = atual
+      atual = proximo
 
-if __name__ == "__main__":
-    main()
+#Início
+Leitura()
+CalculaMostra()
+
+#fim
