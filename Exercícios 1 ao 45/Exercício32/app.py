@@ -1,35 +1,17 @@
 # Código que calcula o fatorial de um número inteiro.
 
-print("Calcule o fatorial de um número inteiro")
+#Declarar
+num = int(input("Digite um numero: "))
+fatorial = 1
 
-try:
-    # 1. Obter o número do usuário
-    valor = int(input("Insira o número:"))
+#Início
+if num < 0:
+  print("Nao existe fatorial para numero negativo.")
+elif num == 0:
+  print("O fatorial de 0 e 1.")
+else:
+  for i in range(1, num + 1):
+    fatorial = fatorial * i
+  print("O fatorial de", num, "e", fatorial)
 
-    # 2. Verifica se o número é negativo
-    if valor < 0:
-        print("Não é possível calcular com esse valor")
-    else:
-        # --- Lógica de Fatorial (Substitui a função 'fatorial') ---
-        
-        # O fatorial de 0 é 1
-        if valor == 0:
-            valor_fatorial = 1
-        else:
-            # Variáveis para o cálculo
-            valor_fatorial = 1
-            fatorar = 1
-
-            # Loop para multiplicar de 1 até o 'valor'
-            while fatorar <= valor:
-                valor_fatorial *= fatorar
-                fatorar += 1
-        
-        # --- Fim da Lógica de Fatorial ---
-        
-        # 3. Exibe o resultado
-        print(f"O fatorial do número {valor} é {valor_fatorial}")
-
-except ValueError:
-    # 4. Tratativa de erro para entrada não-numérica
-    print("Entrada inválida. Por favor, insira um número inteiro.")
+#fim
