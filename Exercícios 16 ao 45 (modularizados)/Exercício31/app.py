@@ -1,24 +1,25 @@
-print("Calcule o quadrado dos números entre 10 e 150")
+#Calcule e mostre o quadrado dos números entre 10 e 150.
 
-#declarar
+#Declarar
+numero = 0
+quadrado = 0
 
-def menu():
-    try:
-        valor = float(input("Insira o número: "))
-        return valor
-    except ValueError:
-        print("Entrada inválida. Por favor, insira um número.")
-        return None
+#procedimento
+def Leitura():
+  global numero
+  numero = float(input("Digite um numero: "))
 
-#inicio
-    
-valor = menu()
+#procedimento
+def Calculo():
+  global numero, quadrado
+  if numero >= 10 and numero <= 150:
+    quadrado = numero * numero
+    print("O quadrado de", numero, "e:", quadrado)
+  else:
+    print("O numero esta fora do intervalo permitido (10 a 150).")
 
-while valor is not None:
-    if valor >= 10 and valor <= 150:
-        valor_quadrado = valor ** 2
-        print(f"O quadrado do número é {valor_quadrado:.2f}")
-    else:
-        print("O valor inserido está fora do intervalo válido (10 a 150).")
-        break
-    valor = menu()
+#Início
+Leitura()
+Calculo()
+
+#fim
