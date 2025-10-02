@@ -1,28 +1,36 @@
 #Receba 2 números inteiros, verifique qual o maior entre eles. Calcule e mostre o resultado da somatória dos números ímpares entre esses valores.
-print("Cálculo da somatória dos números ímpares entre dois valores inteiros")
 
-def somar_impares():
-    try:
-        valor1 = int(input("Insira o primeiro número inteiro: "))
-        valor2 = int(input("Insira o segundo número inteiro: "))
-        
-        if valor1 == valor2:
-            print("Os números são iguais. Por favor, insira dois números inteiros diferentes.")
-            return
-    except ValueError:
-        print("Entrada inválida. Por favor, insira números inteiros.")
-        return
-    
-    # Determina o intervalo correto
-    menor = min(valor1, valor2)
-    maior = max(valor1, valor2)
-    
-    soma_impares = 0
-    for num in range(menor + 1, maior):
-        if num % 2 != 0:
-            soma_impares += num
-    
-    print(f"A somatória dos números ímpares entre {menor} e {maior} é: {soma_impares}")
+#Declarar
+num1 = 0
+num2 = 0
+soma = 0
 
-if __name__ == "__main__":
-    somar_impares()
+#procedimento
+def Leitura():
+  global num1, num2
+  num1 = int(input("Digite o primeiro numero: "))
+  num2 = int(input("Digite o segundo numero: "))
+
+#procedimento
+def Calculo():
+  global num1, num2, soma
+  maior = 0
+  menor = 0
+  
+  if num1 > num2:
+    maior = num1
+    menor = num2
+  else:
+    maior = num2
+    menor = num1
+  
+  for i in range(menor + 1, maior):
+    if i % 2 != 0:
+      soma = soma + i
+
+#Início
+Leitura()
+Calculo()
+print("A soma dos impares entre os dois numeros e:", soma)
+
+#fim
