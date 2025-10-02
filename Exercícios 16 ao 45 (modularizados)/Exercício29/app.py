@@ -1,42 +1,33 @@
-print("Calcule o valor corrigido de um investimento na poupança ou renda fixa")
+# Receba o tipo de investimento (1 = poupança e 2 = renda fixa) e o valor do investimento. Calcule e mostre o valor corrigido em 30 dias sabendo que a poupança = 3% e a renda fixa = 5%. Demais tipos não serão considerados.
 
-#modularização
+#Declarar
+valor_investimento = 0
+tipo_investimento = ""
+valor_final = 0
 
-def menu():
-    while True:
-        print("Menu de Escolha do Investimento")
-        print("1. Poupança")
-        print("2. Renda Fixa")
+#procedimento
+def Leitura():
+  global valor_investimento, tipo_investimento
+  valor_investimento = float(input("Digite o valor do investimento: "))
+  print("--- TIPO DE INVESTIMENTO ---")
+  print("1 - Poupanca (3%)")
+  print("2 - Renda Fixa (5%)")
+  tipo_investimento = input("Digite 1 ou 2: ")
 
-        escolha = input("Escolha uma opção:")
-        if escolha in ("1", "2"):
-            return escolha
-        else:
-            print("Opção inválida. Tente novamente.")
+#procedimento
+def Calculo():
+  global valor_investimento, tipo_investimento, valor_final
+  if tipo_investimento == "1":
+    valor_final = valor_investimento * 1.03
+    print("O valor corrigido na poupanca e:", valor_final)
+  elif tipo_investimento == "2":
+    valor_final = valor_investimento * 1.05
+    print("O valor corrigido na renda fixa e:", valor_final)
+  else:
+    print("Opcao invalida.")
 
-def investimento(valor_investido):
-    escolha = menu()
-    if escolha == "1":
-        valor_corrigido = valor_investido * 1.03
-    elif escolha == "2":
-        valor_corrigido = valor_investido * 1.05
-    else:
-        return None
-    return valor_corrigido
-
-#declarar
-
-valor_investido = float(input("Insira o valor a ser investido:"))
-
-
-#inicio
-
-
-valor_corrigido = investimento(valor_investido)
-
-if valor_corrigido is not None:
-    print(f"O valor corrigido do seu investimento é de R${valor_corrigido:.2f}")
+#Início
+Leitura()
+Calculo()
 
 #fim
-
-
