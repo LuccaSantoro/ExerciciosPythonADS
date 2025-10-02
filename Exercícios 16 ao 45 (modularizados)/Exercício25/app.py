@@ -1,65 +1,43 @@
-def get_int_input(prompt, min_value, max_value, extra_check=None, error_msg=None):
-    while True:
-        try:
-            value = int(input(prompt))
-            if min_value <= value <= max_value and (extra_check is None or extra_check(value)):
-                return value
-            else:
-                print(error_msg or f"Insira um valor válido ({min_value} a {max_value}).")
-        except ValueError:
-            print("Entrada inválida. Por favor, digite um número inteiro.")
+# Calcule a duração de um jogo
 
-def get_start_time():
-    dia_inicio = get_int_input(
-        "Insira o dia que o jogo começou: ", 1, 31
-    )
-    hora_inicio = get_int_input(
-        "Insira a hora em que o jogo começou (0 a 23h): ", 0, 23
-    )
-    minuto_inicio = get_int_input(
-        "Insira os minutos em que o jogo começou (0 a 59min): ", 0, 59
-    )
-    return dia_inicio, hora_inicio, minuto_inicio
+#Declarar
+dia_i = 0
+hora_i = 0
+min_i = 0
+dia_f = 0
+hora_f = 0
+min_f = 0
+duracao_h = 0
+duracao_m = 0
 
-def get_end_time(dia_inicio):
-    dia_fim = get_int_input(
-        "Insira o dia que o jogo terminou: ", 1, 31,
-        extra_check=lambda d: d >= dia_inicio,
-        error_msg="O dia de término deve ser igual ou maior que o dia de início e um valor válido (1 a 31)."
-    )
-    hora_fim = get_int_input(
-        "Insira a hora em que o jogo terminou (0 a 23h): ", 0, 23
-    )
-    minuto_fim = get_int_input(
-        "Insira os minutos em que o jogo terminou (0 a 59min): ", 0, 59
-    )
-    return dia_fim, hora_fim, minuto_fim
+#procedimento
+def Leitura():
+  global dia_i, hora_i, min_i, dia_f, hora_f, min_f
+  print("--- Início do Jogo ---")
+  dia_i = int(input("Digite o dia inicial: "))
+  hora_i = int(input("Digite a hora inicial: "))
+  min_i = int(input("Digite o minuto inicial: "))
+  print("--- Fim do Jogo ---")
+  dia_f = int(input("Digite o dia final: "))
+  hora_f = int(input("Digite a hora final: "))
+  min_f = int(input("Digite o minuto final: "))
 
-def calcular_duracao(dia_inicio, hora_inicio, minuto_inicio, dia_fim, hora_fim, minuto_fim):
-    if dia_fim == dia_inicio:
-        duracao_hora = hora_fim - hora_inicio
-        if minuto_fim >= minuto_inicio:
-            duracao_minuto = minuto_fim - minuto_inicio
-        else:
-            duracao_minuto = (minuto_fim + 60) - minuto_inicio
-            duracao_hora -= 1
-    else:
-        duracao_hora = (hora_fim + (24 * (dia_fim - dia_inicio))) - hora_inicio
-        if minuto_fim >= minuto_inicio:
-            duracao_minuto = minuto_fim - minuto_inicio
-        else:
-            duracao_minuto = (minuto_fim + 60) - minuto_inicio
-            duracao_hora -= 1
-    return duracao_hora, duracao_minuto
+#procedimento
+def CalculaDuracao():
+  global dia_i, hora_i, min_i, dia_f, hora_f, min_f, duracao_h, duracao_m
+  # Converte tudo para minutos para facilitar o cálculo
+  total_minutos_inicio = (dia_i * 1440) + (hora_i * 60) + min_i
+  total_minutos_fim = (dia_f * 1440) + (hora_f * 60) + min_f
+  
+  diferenca_minutos = total_minutos_fim - total_minutos_inicio
+  
+  # Converte a diferença de volta para horas e minutos
+  duracao_h = diferenca_minutos // 60
+  duracao_m = diferenca_minutos % 60
 
-def main():
-    print("Calcule a duração de um jogo (menor que 24h)")
-    dia_inicio, hora_inicio, minuto_inicio = get_start_time()
-    dia_fim, hora_fim, minuto_fim = get_end_time(dia_inicio)
-    duracao_hora, duracao_minuto = calcular_duracao(
-        dia_inicio, hora_inicio, minuto_inicio, dia_fim, hora_fim, minuto_fim
-    )
-    print(f"O evento durou {duracao_hora} horas e {duracao_minuto} minutos.")
+#Início
+Leitura()
+CalculaDuracao()
+print("O jogo durou", duracao_h, "horas e", duracao_m, "minutos.")
 
-if __name__ == "__main__":
-    main()
+#fim
