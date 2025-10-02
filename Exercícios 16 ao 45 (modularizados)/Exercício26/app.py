@@ -1,29 +1,38 @@
-def is_multiple(a, b):
-    if b == 0:
-        return None  # Division by zero
-    return a % b == 0
+#Receba 2 números inteiros. Verifique e mostre se o maior número é múltiplo
+do menor.
 
-def check_multiples(valor1, valor2):
-    if valor1 >= valor2:
-        if valor2 == 0:
-            print("Não é possível dividir por zero.")
-        elif is_multiple(valor1, valor2):
-            print(f"O número {valor1} é múltiplo de {valor2}")
-        else:
-            print(f"O número {valor1} não é múltiplo de {valor2}")
-    else:
-        if valor1 == 0:
-            print("Não é possível dividir por zero.")
-        elif is_multiple(valor2, valor1):
-            print(f"O número {valor2} é múltiplo de {valor1}")
-        else:
-            print(f"O número {valor2} não é múltiplo de {valor1}")
+#Declarar
+num1 = 0
+num2 = 0
 
-def main():
-    print("Descubra se o maior número é múltiplo do menor")
-    valor1 = float(input("Insira o primeiro número:"))
-    valor2 = float(input("Insira o segundo número:"))
-    check_multiples(valor1, valor2)
+#procedimento
+def Leitura():
+  global num1, num2
+  num1 = int(input("Digite o primeiro valor: "))
+  num2 = int(input("Digite o segundo valor: "))
 
-if __name__ == "__main__":
-    main()
+#procedimento
+def Verifica():
+  global num1, num2
+  maior = 0
+  menor = 0
+  
+  if num1 > num2:
+    maior = num1
+    menor = num2
+  else:
+    maior = num2
+    menor = num1
+  
+  if menor == 0:
+    print("Nao e possivel dividir por zero.")
+  elif maior % menor == 0:
+    print(maior, "e multiplo de", menor)
+  else:
+    print(maior, "nao e multiplo de", menor)
+
+#Início
+Leitura()
+Verifica()
+
+#fim
