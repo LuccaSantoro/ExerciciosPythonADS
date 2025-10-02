@@ -1,26 +1,23 @@
-print("Cálculo da série 1 + 1/2 + 1/3 + ... + 1/N")
- 
-# modularização
-def calcular_serie():
-    """
-    Função para calcular a soma da série harmônica até N.
-    """
-    try:
-        numero = int(input("Digite um número inteiro positivo: "))
-        
-        if numero <= 0:
-            print("Número inválido. Por favor, digite um número inteiro positivo.")
-            return
-    except ValueError:
-        print("Entrada inválida. Por favor, digite um número inteiro.")
-        return
-        
-    total = 0.0
-    for i in range(1, numero + 1):
-        total += 1 / i
+#Receba um número. Calcule e mostre a série 1 + 1/2 + 1/3 + ... + 1/N.
 
-    print(f"O resultado da série 1 + 1/2 + ... + 1/{numero} é: {total}")
- 
-# inicio
-if __name__ == "__main__":
-    calcular_serie()
+#Declarar
+n = 0
+soma_final = 0.0
+
+#procedimento
+def Leitura():
+  global n
+  n = int(input("Digite um numero inteiro positivo: "))
+
+#procedimento
+def Calculo():
+  global n, soma_final
+  for i in range(1, n + 1):
+    soma_final = soma_final + (1/i)
+
+#Início
+Leitura()
+Calculo()
+print("O resultado da serie e:", soma_final)
+
+#fim
